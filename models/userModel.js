@@ -18,13 +18,22 @@ const userSchema = new mongoose.Schema({
   photo: String,
   role: {
     type: String,
-    enum: ['user', 'guide', 'lead-guide', 'admin'],
+    enum: ['user', 'owner'],
     default: 'user',
   },
   height: Number,
   weight: Number,
   experience: Number,
-  follows: [
+  follows: {
+    type: [
+      {
+        type: mongoose.Schema.ObjectId,
+        ref: 'User',
+      },
+    ],
+    default: null,
+  },
+  followers: [
     {
       type: mongoose.Schema.ObjectId,
       ref: 'User',
