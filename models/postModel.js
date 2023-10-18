@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const User = require('./../models/userModel');
 const slugify = require('slugify');
 // const validator = require('validator');
 const postSchema = new mongoose.Schema(
@@ -12,6 +13,11 @@ const postSchema = new mongoose.Schema(
       minlength: [10, 'A post name must have more or equal then 10 characters'],
       // validate: [validator.isAlpha,  post name must only contain characters']
     },
+    owner: {
+      type: mongoose.Schema.ObjectId,
+      ref: 'User',
+      required: [true, 'A post must have a owner'],
+    },
     slug: String,
     duration: {
       type: Number,
@@ -22,7 +28,7 @@ const postSchema = new mongoose.Schema(
       type: String,
       required: [true, 'A post must have a difficulty'],
       enum: {
-        values: ['easy', 'medium', 'difficult'],
+        values: ['easy', 'medium', 'hard'],
         message: 'Difficulty is either: easy, medium, difficult',
       },
     },

@@ -63,6 +63,7 @@ exports.unfollow = async (req, res, next) => {
   const unfollow = await User.findById(unfollowId);
   unfollow.followers.pop(me.id);
   me.follows.pop(unfollowId);
+  api;
 
   await User.findByIdAndUpdate(me.id, { follows: me.follows });
   await User.findByIdAndUpdate(unfollow.id, { followers: unfollow.followers });
