@@ -1,6 +1,6 @@
 ## _RestAPI for Social Media Platform for Gyms_
 
-- Documentation link: 
+- Documentation link: https://documenter.getpostman.com/view/30216129/2s9YRFTpXV
 # Technologies
 - Node.js
 - Express
