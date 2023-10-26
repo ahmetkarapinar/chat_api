@@ -17,13 +17,13 @@ const userSchema = new mongoose.Schema(
       lowercase: true,
       validate: [validator.isEmail, 'Please provide a valid email'],
     },
-    // isPrivate: {
-    //   type: Boolean,
-    //   required: [
-    //     true,
-    //     'You should decide your post to be public or private for gyms.',
-    //   ],
-    // },
+    isPrivate: {
+      type: Boolean,
+      required: [
+        true,
+        'You should decide your post to be public or private for gyms.',
+      ],
+    },
     photo: String,
     role: {
       type: String,
